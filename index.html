@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Design Webpage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="main">
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">NaRoz</h2>
+            
+        </div>
+    </div>
+    <div class="login-container"id="login-form" >
+     <h2>Login</h2>
+     <form action="submit_form.php" method="post"> <!-- Pamiętaj o określeniu właściwej ścieżki do przetwarzania formularza -->
+            <input type="text" id="login-email" name="email" placeholder="Email adress" required>
+           <div class = password-wrapper>
+                <input  type="password" id="login-password" name="password" placeholder="Password" required>
+              <span class="toggle-password" id="togglePassword" aria-label="Toggle password visibility" role="button" tabindex="0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                 <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"></path>
+                 <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </span>
+            </div>
+            <input type="submit" value="Sign In">
+        </form>
+        <p> Don't you have an account? <a  href="#" id="show-register">Create here!</a></p>
+   </div> 
+
+
+   
+   <div class="register-container" id="register-form" style="display:none;">
+     <h2>Register</h2>
+     <form action="submit_form.php" method="post"> 
+            <input type="text" id="register-email" name="email" placeholder="Email adress" required>
+            <div class = password-wrapper>
+                <input  type="password" id="register-password" name="password" placeholder="Password" required>
+              <span class="toggle-password" id="register-password-toggle" aria-label="Toggle password visibility" role="button" tabindex="0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                 <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"></path>
+                 <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </span>
+            </div>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" required>
+            <input type="submit" value="Sign up">
+             
+        </form>
+        <p> Do you have an account? <a  href="#" id="show-login">Sign in</a></p>
+   </div>
+   
+
+   </div>
+
+   <script src="script.js"></script>
+</body>
+</html>
