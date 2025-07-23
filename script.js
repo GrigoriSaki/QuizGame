@@ -41,7 +41,7 @@ document.querySelector("#login-form form").addEventListener("submit", async func
   
 
 
-  const response = await fetch("http://localhost:5237/api/auth/login", {
+  const response = await fetch("https://localhost:7049/api/auth/login", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({email: email, password: pass})
@@ -54,6 +54,9 @@ const result = await response.json();
     if (response.ok) {
         alert("Zalogowano pomyślnie!");
         // Tutaj możesz przekierować użytkownika, np. window.location.href = "/dashboard";
+        localStorage.setItem("token", result.token);
+        console.log(result.token);
+       window.location.href = "/dashboard.html";
         
     } else {
         alert(result.message || "Błąd logowania.");
@@ -74,7 +77,7 @@ document.querySelector("#register-form form").addEventListener("submit", async f
         return;
     }
 
-     const response = await fetch("http://localhost:5237/api/auth/register", {
+     const response = await fetch("https://localhost:7049/api/auth/register", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({email: email, password: pass, confirmPassword: confirmPass})
