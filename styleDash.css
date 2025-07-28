@@ -9,13 +9,157 @@
     
 }
 
-container
+h1{
+    padding: 5px;
+}
+
+.container
 {
     display: flex;
+    flex-direction: row;
+    gap: 5px;
 }
 
 .sidebar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 100vh;
+    padding: 0 0.9rem;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    background-color: rgb(143, 225, 147)
+    
+    
+}
+
+.sidebar:hover{
     width: 200px;
-    background-color: #9e9e9e;
-    padding: 15px;
+    transition: all 0.2s linear;
+    border-radius: 0 8px 8px 0;
+    border-right: 8px solid rgba(0, 0, 0, 0.1);
+}
+
+.logo{
+    height: 60px;
+    padding: 16px;
+}
+
+.main{
+    height: 88%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+
+}
+
+.main li{
+   
+    margin: 8px 0;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.main a:hover, .active{
+    background-color: rgb(177, 248, 180);
+    border-radius: 8px;
+  
+}
+
+.main a{
+    color: rgb(59, 59, 59);
+    font-size: 15px;
+    ;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.8rem; 
+}
+
+.main a span{
+    overflow: hidden;
+}
+.main a i{
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    left: 0;
+    
+}
+
+.logout{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+}
+
+.header--wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.header--wrapper h2{
+    color:rgb(143, 225, 147) ;
+}
+
+.header--title span {
+    font-size: 14px;
+    color: #718093;
+}
+
+.header--title h2 {
+    font-size: 28px;
+   
+}
+
+.first--widget{
+    width: 25rem;
+    height: 10rem;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+.avatar img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding-left: 8px;
+    background-color:#dee2e6 ;
+    object-fit: cover;
+    
+}
+
+.main--content{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.avatar h3{
+    font-size: 16px;
+    margin-right: 10px;
+    color: rgb(59, 59, 59);
 }
