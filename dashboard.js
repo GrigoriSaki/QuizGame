@@ -25,3 +25,31 @@ if (token)
         console.log("Brak tokenu, użytkownik niezalogowany.");
     }
 
+    function animateCountUp(elementId, countValue, duration)
+    {
+        const element = document.getElementById(elementId);
+        let startValue = 0;
+        const stepTime = Math.abs(Math.floor(duration /countValue
+        ))
+
+
+        const timer = setInterval (()=>{
+            startValue++;
+            element.textContent = startValue;
+            if (startValue >= countValue) {
+                clearInterval(timer);
+            }
+        }, stepTime)
+
+    }
+
+    window.onload = function() {
+        animateCountUp("quizCount", 453, 5000);
+       
+        
+    }
+
+    
+  
+
+
