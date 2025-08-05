@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleDash.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .row{
+            display: flex;
+            gap: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>NeuronQuiz</h1>
@@ -42,7 +48,7 @@
        <div class="main--content">
                 <div class="header--wrapper">
                    <div class="header--title">
-                    <h2>Hello Jerry </h2>
+                    <h2 > Hello USERNAME </h2>
                      <span>Let's try Yourself!</span>
                      
                    </div>
@@ -51,26 +57,40 @@
                    <img src="avatar.png" >
                    </div>
                 </div>
-                <div class="quiz--result">
-                    <h3>Finished quizzes</h3>
-                    <div class="result--row">
-                        <div class="brain--icon"></div>
+
+                
+                    <div class="row">
+                        <div class="quiz--result">
+                      <h3>Finished quizzes</h3>
+                        <div class="result--row">
+                            <div class="brain--icon"></div>
                             <div class="quizCounter">
                             
-                            <h2 id="quizCount" ></h2>
-                            <h3>Ready for the next level?</h3>
+                             <h2 id="quizCount" ></h2>
+                             
+                             <h3>Ready for the next level?</h3>
 
+                            </div>   
                         </div>
-
-                       
-                        
-                        
+    
                     </div>
-                </div>
-                
+
+                    <div class="last--result">
+                                <h1>Your last result:</h1>
+                                
+                                  <div class="row">
+                                    <i class="fas fa-trophy"></i>
+                                    <h2 id="lastResult">7/10</h2>
+                                  </div>
+                                
+                    </div>
+
+                    </div>
+                   
+                    
+
                 </div>
             </div>
-        </div>
       </div>  
         
     </div>

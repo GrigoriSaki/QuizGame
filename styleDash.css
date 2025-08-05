@@ -234,6 +234,8 @@ h1
 }
 
 
+
+
 .avatar img{
     width: 60px;
     height: 60px;
@@ -261,4 +263,48 @@ h1
     font-size: 16px;
     margin-right: 10px;
     color: rgb(59, 59, 59);
+}
+
+.last--result
+{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-between;
+    width: 100%;
+    height: 20rem;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+   
+}
+.last--result h1 {
+    font-size: 2rem;
+    color: rgb(59, 59, 59);
+    margin-bottom: 1rem;
+}
+
+.last--result i {
+    font-size: 8rem;
+    color: gold;
+    margin-right: 1rem;
+    padding-bottom: 50px;
+
+}
+
+.last--result h2 {
+    font-size: 7rem;
+    color: rgb(59, 59, 59);
+    margin-right: 1rem;
+    padding-bottom: 50px;
+}
+
+.last--result .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    
 }

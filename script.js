@@ -68,6 +68,7 @@ const result = await response.json();
 
 document.querySelector("#register-form form").addEventListener("submit", async function (e){
   e.preventDefault();
+  const userName = this.userName.value;
   const email = this.email.value;
   const pass = this.password.value;
   const confirmPass = this.confirm_password.value;
@@ -80,9 +81,9 @@ document.querySelector("#register-form form").addEventListener("submit", async f
      const response = await fetch("https://localhost:7049/api/auth/register", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({email: email, password: pass, confirmPassword: confirmPass})
+        body: JSON.stringify({ userName: userName ,email: email, password: pass, confirmPassword: confirmPass})
     });
-   
+    
     const result = await response.json();
     if (response.ok) {
         alert("Zarejestrowano pomyślnie!");

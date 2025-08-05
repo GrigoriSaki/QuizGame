@@ -19,7 +19,9 @@ if (token)
         })
         .then(data => {
              console.log("Dane profilu:", data); 
-            document.getElementById("userEmail").textContent = data.email})
+            document.getElementById("userEmail").textContent = data.email
+            document.querySelector(".header--title h2").textContent = `Hello ${data.userName}`;
+        })
         .catch(error => console.error("Błąd: ", error))
     } else {
         console.log("Brak tokenu, użytkownik niezalogowany.");
