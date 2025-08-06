@@ -51,6 +51,14 @@ if (token)
         
     }
 
+    document.getElementById("logoutButton").addEventListener("click", function(e){e.preventDefault();
+
+        localStorage.removeItem("token");
+        window.location.href = "index.html";
+        alert("Wylogowano pomyślnie!");
+
+    }); 
+
     
   
 
