@@ -59,6 +59,11 @@ if (token)
 
     }); 
 
+    document.getElementById("startQuizButton").addEventListener("click",function(e){e.preventDefault();
+
+        window.location.href = "quizGame.html";
+    } )
+
     
   
 
