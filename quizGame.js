@@ -1,10 +1,13 @@
-let token = localStorage.getItem("jwtToken");
+const token = localStorage.getItem('token');
+const nextButton = document.getElementById("next-button");
 
 async function loadQuestion()
 {
-    const res = await fetch("/api/quiz/random", {
+    nextButton.style.display = "none";
+    const res = await fetch("https://localhost:7049/api/quiz/random", {
         headers: { "Authorization": "Bearer " + token }
     });
+    
 
     const q = await res.json();
 
@@ -25,7 +28,7 @@ async function loadQuestion()
 
 async function checkAnswer(questionId, answerId, btn) 
 {
-     const res = await fetch(`/api/quiz/${questionId}/check`, {
+     const res = await fetch(`https://localhost:7049/api/quiz/${questionId}/check`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -36,7 +39,9 @@ async function checkAnswer(questionId, answerId, btn)
 
     const result = await res.json();
     btn.style.backgroundColor = result.correct ? "green" : "red";
+    nextButton.style.display = "block";
 }
 
-document.getElementById("next-button").onclick = loadQuestion;
+
+nextButton.onclick = loadQuestion;
 loadQuestion();
