@@ -2,6 +2,14 @@ const token= localStorage.getItem('token');
 
 console.log("Token z localStorage:", token);
 
+let lastScore = localStorage.getItem("lastScore");
+if (lastScore === null) {
+    lastScore = 0;
+}
+
+document.getElementById("score").innerText = `${lastScore}/10`;
+
+
 if (token)
     {
         fetch("https://localhost:7049/api/auth/profile", {

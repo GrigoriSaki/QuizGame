@@ -29,6 +29,19 @@ body{
     padding-bottom: 30px;
 }
 
+.header{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.header h3{
+  font-size: 18px;
+    color:rgb(59, 59, 59);
+    font-weight: 600;
+    padding-right: 5px;
+
+}
+
 .quiz{
     padding: 20px 0;
 }
@@ -52,6 +65,7 @@ body{
     text-align: left;
     cursor: pointer;
     transition: 0.3s;
+    display: none;
 }
 
 .btn:hover{
@@ -73,3 +87,54 @@ body{
     display: none ;
 }
 
+#finish-button{
+    width: 150px;
+    padding: 10px ;
+    margin: 20px auto 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(59, 59, 59);
+    background: linear-gradient(90deg, #7dcfa0, #52f984, #7dcfa0);
+    border: 1px solid rgb(59, 59, 59);
+    border-radius: 4px;
+    cursor: pointer;
+    display: none ;
+}
+
+.end-title {
+    font-size: 24px;
+    color: rgb(59, 59, 59);
+    font-weight: 600;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+p{
+    font-size: 26px;
+    color: rgb(59, 59, 59);
+    text-align: center;
+    padding-top: 10px;
+}
+
+#restart-button {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin: 50px auto 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(59, 59, 59);
+    background: rgb(59, 59, 59);;
+    border: 1px solid rgb(59, 59, 59);
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    
+}
+
+#restart-button:hover {
+    background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc);
+    color: white;
+    transition:  0.3s ease;
+}
