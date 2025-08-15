@@ -77,6 +77,24 @@ function updateQuestionIndex() {
 function finishQuiz() {
     document.getElementById("content").innerHTML = "<h1 class=\"end-title\">You did it!</h1> <p>Your score: " + counter + "/" + maxQuestions + "</p> <button id=\"restart-button\">OK!</button>";
     const restartButton = document.getElementById("restart-button");
+
+    fetch("https://localhost:7049/api/auth/update-result", {
+    method: "PUT",
+    headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify(counter)
+})
+.then(res => res.json())
+.then(data => console.log("Aktualizacja wyniku:", data))
+.catch(err => console.error(err));
+
+
+
+
+
+
     restartButton.onclick=()=>{window.location.href = "dashboard.html";};
 }
     

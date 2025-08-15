@@ -1,13 +1,6 @@
 const token= localStorage.getItem('token');
-
-console.log("Token z localStorage:", token);
-
-let lastScore = localStorage.getItem("lastScore");
-if (lastScore === null) {
-    lastScore = 0;
-}
-
-document.getElementById("score").innerText = `${lastScore}/10`;
+let quizCounter= 0;
+document.getElementById("quizCount").textContent = 0;
 
 
 if (token)
@@ -26,14 +19,19 @@ if (token)
             } return response.json();
         })
         .then(data => {
-             console.log("Dane profilu:", data); 
             document.getElementById("userEmail").textContent = data.email
             document.querySelector(".header--title h2").textContent = `Hello ${data.userName}`;
+            document.querySelector("#score").textContent = `${data.lastResult}/10`;
+            quizCounter = data.completedQuizes;
+            animateCountUp("quizCount", quizCounter, 4000);
+
         })
         .catch(error => console.error("Błąd: ", error))
     } else {
         console.log("Brak tokenu, użytkownik niezalogowany.");
     }
+
+    
 
     function animateCountUp(elementId, countValue, duration)
     {
@@ -53,11 +51,7 @@ if (token)
 
     }
 
-    window.onload = function() {
-        animateCountUp("quizCount", 453, 5000);
-       
-        
-    }
+   
 
     document.getElementById("logoutButton").addEventListener("click", function(e){e.preventDefault();
 
