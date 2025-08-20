@@ -45,12 +45,12 @@ document.querySelector("#login-form form").addEventListener("submit", async func
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({email: email, password: pass})
-    
-});
+  });
 
 
 
-const result = await response.json();
+
+  const result = await response.json();
     if (response.ok) {
         alert("Zalogowano pomyślnie!");
         // Tutaj możesz przekierować użytkownika, np. window.location.href = "/dashboard";

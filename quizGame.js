@@ -55,7 +55,7 @@ async function checkAnswer(questionId, answerId, btn)
 
     if (result.correct) {
         counter++;
-       
+        
     }
     localStorage.setItem("lastScore", counter);
     currentQuestionIndex++;
@@ -84,16 +84,14 @@ function finishQuiz() {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`
     },
-    body: JSON.stringify(counter)
+    body: JSON.stringify({
+        lastResult: counter,
+        completedQuizes: 1 
+    })
 })
 .then(res => res.json())
 .then(data => console.log("Aktualizacja wyniku:", data))
 .catch(err => console.error(err));
-
-
-
-
-
 
     restartButton.onclick=()=>{window.location.href = "dashboard.html";};
 }
