@@ -88,8 +88,9 @@
     object-fit: cover;
 }
 
-.profile-details #admin{
+ #admin{
     margin-bottom: 10px;
     font-weight: bold;
     color: rgb(143, 225, 147);
+    display: none;
 }

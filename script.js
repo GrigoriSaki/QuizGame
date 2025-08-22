@@ -56,6 +56,7 @@ document.querySelector("#login-form form").addEventListener("submit", async func
         // Tutaj możesz przekierować użytkownika, np. window.location.href = "/dashboard";
         localStorage.setItem("token", result.token);
         console.log(result.token);
+        
        window.location.href = "/dashboard.html";
         
     } else {

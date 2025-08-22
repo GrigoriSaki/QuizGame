@@ -3,6 +3,7 @@ let quizCounter= 0;
 document.getElementById("quizCount").textContent = 0;
 
 
+
 if (token)
     {
         fetch("https://localhost:7049/api/auth/profile", {
@@ -24,7 +25,9 @@ if (token)
             document.querySelector("#score").textContent = `${data.lastResult}/10`;
             quizCounter = data.completedQuizes;
             animateCountUp("quizCount", quizCounter, 4000);
-
+            localStorage.setItem("isAdmin", data.isAdmin);
+            
+            
         })
         .catch(error => console.error("Błąd: ", error))
     } else {
@@ -66,7 +69,25 @@ if (token)
         window.location.href = "quizGame.html";
     } )
 
-    
-  
 
+    document.getElementById("userProfileLink").addEventListener("click", function(e){e.preventDefault();
+        isAdminUser();
+
+        window.location.href = "userProfile.html";
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+    isAdminUser(); // funkcja, która sprawdza localStorage i pokazuje element
+});
+
+    function isAdminUser() {
+        if(localStorage.getItem("isAdmin") === "true") {
+            
+        document.getElementById("admin").style.display = "block";
+        console.log("User is admin");
+
+    }
+    }
+
+   
 
