@@ -71,23 +71,14 @@ if (token)
 
 
     document.getElementById("userProfileLink").addEventListener("click", function(e){e.preventDefault();
-        isAdminUser();
+        
 
         window.location.href = "userProfile.html";
     });
 
-    document.addEventListener("DOMContentLoaded", () => {
-    isAdminUser(); // funkcja, która sprawdza localStorage i pokazuje element
-});
+    
 
-    function isAdminUser() {
-        if(localStorage.getItem("isAdmin") === "true") {
-            
-        document.getElementById("admin").style.display = "block";
-        console.log("User is admin");
-
-    }
-    }
+    
 
    
 
