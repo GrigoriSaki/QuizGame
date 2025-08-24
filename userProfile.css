@@ -26,6 +26,7 @@
     border-right: 2px solid #acacac;
     border-left: 2px solid #acacac;
     margin-top: 25px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     
 }
 
@@ -34,6 +35,7 @@
     padding: 10px 15px;
     border-radius: 8px ;
     border: 2px solid #acacac;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     
 }
 
@@ -57,13 +59,7 @@
     margin-bottom: 10px;
 }
 
-.profile-details {
-    padding: 10px 15px;
-    display: flex;
-    flex-direction: column;    
-    align-items: flex-start;
-    gap: 5px;
-}
+
 
 .profile-details p{
     margin-bottom: 10px;
@@ -93,12 +89,80 @@
     }
 
 .details-container {
-  display: flex;              
+  display: flex; 
+  flex-direction: column;             
   justify-content: space-between; 
   align-items: center;        
   padding: 10px;
   background: #f0f0f0;
   border-radius: 8px;
 }
+
+.details-row button {
+
+    cursor: pointer;
+    background: rgb(143, 225, 147);
+    border: none;
+    color: black;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-right: 25px;
+    display: none;
+    align-self: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    
+    
+}
+
+.details-row button:hover {
+    background: rgb(59, 59, 59);
+    color: white;
+    transition:  0.3s ease;
+}
+
+
+
+.details-row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: flex-start;
+    
+}
+
+.profile-details {
+    padding: 10px 15px;
+   
+    display: flex;
+    flex-direction: column;    
+    align-items: flex-start;
+    gap: 5px;
+}
+
+
+.question-container{
+
+    display: block;
+    margin: 20px 0;
+    border: 2px solid #acacac;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.question-header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 25px 0;
+    padding: 20px;
+    border-radius: 6px 6px 0 0;
+    background: rgb(143, 225, 147);
+}
+
 
    

@@ -19,19 +19,67 @@
             </div>
            <div class="details-container">
 
-             <div class="profile-details">
                 <div class="profile-picture">
                     <img src="avatar.png" alt="Profile Picture">
                 </div>
 
-                <p><strong>Username:</strong> JohnDoe177</p>
-                <p><strong>Email:</strong> john.doe@example.com</p>
-                <p><strong>User since:</strong> 09.08.2025</p>
+              <div class="details-row">
+                <div class="profile-details">
+                
+
+                <p><strong>Username:</strong> <span id="username"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>User since:</strong> <span id="user-since"></span></p>
                 <h3 id="admin">Admin</h3>
                 
-             </div>
+              </div>
 
-             <button id="add-question">Add Question</button>
+              <button id="add-question">Add Question</button>
+              </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">
+                <h3>Add Question</h3>
+            </div>
+            <form class="add-question-form">
+                <div class="form-group">
+                    <label for="question">Your question</label>
+                    <input type="text" id="question" name="question" required placeholder="Write your question here">
+                </div>
+            </form>
+
+            <form class="add-good-answer-form">
+                <div class="form-group">
+                    <label for="good-answer">Good answer</label>
+                    <input type="text" id="good-answer" name="good-answer" required placeholder="Type good answer">
+                </div>
+            </form>
+
+            <form class="add-second-answer-form">
+                <div class="form-group">
+                    <label for="second-answer">Answer 2</label>
+                    <input type="text" id="second-answer" name="second-answer" required placeholder="Type answer">
+                </div>
+            </form>
+
+            <form class="add-third-answer-form">
+                <div class="form-group">
+                    <label for="third-answer">Answer 3</label>
+                    <input type="text" id="third-answer" name="third-answer" required placeholder="Type answer">
+                </div>
+            </form>
+
+             <form class="add-fourth-answer-form">
+                <div class="form-group">
+                    <label for="fourth-answer">Answer 4</label>
+                    <input type="text" id="fourth-answer" name="fourth-answer" required placeholder="Type answer">
+                </div>
+            </form>
+            <div class="button-container">
+                <button id="submit-answers">Submit Answers</button>
+                <button id="cancel">Cancel</button>
             </div>
         </div>
 
