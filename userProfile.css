@@ -145,12 +145,13 @@
 
 .question-container{
 
-    display: block;
+    display: none;
     margin: 20px 0;
     border: 2px solid #acacac;
     border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    
 }
 
 .question-header{
@@ -164,5 +165,40 @@
     background: rgb(143, 225, 147);
 }
 
+.form-group {
+    margin: 5px 25px 15px;
+}
 
+.form-group label {
+   font-weight: bold;
    
+}
+ 
+.form-group input {
+    padding: 8px 12px;
+    border: 1px solid #acacac;
+    border-radius: 4px;
+    width: calc(100%);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 25px;
+    gap: 20px;
+}
+
+.button-container button {
+    padding: 10px 15px;
+    width: 10rem;
+    background-color:#d6d6d6 ;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.button-container button:hover {
+    background-color: rgb(143, 225, 147);
+}
