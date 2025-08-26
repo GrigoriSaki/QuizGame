@@ -61,9 +61,70 @@ function isAdminUser() {
             document.querySelector(".question-container").style.display = "none";
             document.querySelector(".profile-container").style.display = "block";
             document.querySelector(".header").style.display = "block";
+            clearForm();
         })
 
         submitBtn.addEventListener("click", ()=>
         {
-             
+            
+           sendQuestion();
         })
+
+        function clearForm()
+        { 
+            const inputs = document.querySelectorAll(".form-group input");
+            inputs.forEach(input => {
+                input.value = "";
+            });
+        }
+
+        async function sendQuestion() {
+            const questionText= document.getElementById("question-text").value;
+            console.log("Treść pytania:", questionText);
+            
+
+            const answerInputs= document.querySelectorAll(".answer-text");
+            
+            let answers = [];
+            answerInputs.forEach((input, i)=>{
+                answers.push({
+                    answerText: input.value,
+                    isCorrect: i === 0
+                })
+            })
+
+            const dto = {
+                questionText: questionText,
+                answers: answers
+            };
+            console.log("DTO wysyłane do API:", dto);
+
+            try{
+                const response = await fetch("https://localhost:7049/api/quiz/question" ,{
+                    method:"POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`
+                      },
+                      body: JSON.stringify(dto)
+                    
+                    })
+
+                    if(response.ok)
+                        {
+                            
+                            const result = await response.json();
+                            alert(result.message);
+                            clearForm();
+                        }
+                        else {
+                                alert("Błąd: " + response.status);
+                             }
+        
+                }
+
+            catch(error){
+                console.error("Błąd wysyłania pytania: ", error);
+            }
+
+        }
