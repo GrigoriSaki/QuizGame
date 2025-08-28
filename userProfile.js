@@ -54,6 +54,7 @@ function isAdminUser() {
             document.querySelector(".question-container").style.display = "block";
             document.querySelector(".profile-container").style.display = "none";
             document.querySelector(".header").style.display = "none";
+            
         })
 
         cancelBtn.addEventListener("click", ()=>
@@ -66,8 +67,8 @@ function isAdminUser() {
 
         submitBtn.addEventListener("click", ()=>
         {
-            
-           sendQuestion();
+            validateAll();
+
         })
 
         function clearForm()
@@ -128,3 +129,22 @@ function isAdminUser() {
             }
 
         }
+
+
+       function validateAll() {
+  
+  const requiredFields = document.querySelectorAll("[required]");
+  let allValid = true;
+
+  for (let field of requiredFields) {
+    if (!field.checkValidity()) {
+      field.reportValidity(); 
+      allValid = false;
+      break; 
+    }
+  }
+
+  if (allValid) {
+    sendQuestion();
+  }
+}
