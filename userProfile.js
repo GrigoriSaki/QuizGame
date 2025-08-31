@@ -80,7 +80,9 @@ function isAdminUser() {
         }
 
         async function sendQuestion() {
-            const questionText= document.getElementById("question-text").value;
+            let questionText= document.getElementById("question-text").value;
+             questionText = questionText.replace(/\?/g, "").trim();
+
             console.log("Treść pytania:", questionText);
             
 
@@ -119,7 +121,8 @@ function isAdminUser() {
                             clearForm();
                         }
                         else {
-                                alert("Błąd: " + response.status);
+                                const error = await response.json(); 
+                                alert(error.message || "Wystąpił nieznany błąd."); 
                              }
         
                 }

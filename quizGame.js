@@ -7,25 +7,39 @@ let currentQuestionIndex = 0;
 
 let counter = 0;
 const maxQuestions = 10;
+let shownQuestionIds = [];
 
 
 
 async function loadQuestion()
 {
      updateQuestionIndex();
+     
     nextButton.style.display = "none";
-    const res = await fetch("https://localhost:7049/api/quiz/random", {
-        headers: { "Authorization": "Bearer " + token }
-    });
+    let q;
+
+    do{const res = await fetch("https://localhost:7049/api/quiz/random", {
+        headers: { "Authorization": "Bearer " + token }});
+        q = await res.json();
+
+      } while (shownQuestionIds.includes(q.id));
+
+    shownQuestionIds.push(q.id);
+    
     
 
-    const q = await res.json();
 
-    document.getElementById("question").innerText = q.questionText;
+    document.getElementById("question").innerText = q.questionText+"?";
     const container = document.getElementById("answerButtons");
     container.innerHTML = "";
 
-     q.answers.forEach(a => {
+    const shuffledAnswers = [...q.answers];
+     for (let i = shuffledAnswers.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledAnswers[i], shuffledAnswers[j]] = [shuffledAnswers[j], shuffledAnswers[i]];
+    }
+
+     shuffledAnswers.forEach(a => {
         const btn = document.createElement("button");
         btn.classList.add("btn");
         btn.textContent = a.answerText;
@@ -60,7 +74,7 @@ async function checkAnswer(questionId, answerId, btn)
     localStorage.setItem("lastScore", counter);
     currentQuestionIndex++;
 
-    if (currentQuestionIndex >= 2) {
+    if (currentQuestionIndex >= maxQuestions) {
        
         nextButton.style.display = "none";
         finishButton.style.display = "block";
