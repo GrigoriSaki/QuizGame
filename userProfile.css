@@ -68,6 +68,7 @@
 .profile-picture {
     width: 150px;
     height: 150px;
+    background-color: rgb(84, 148, 233);
     margin: 20px auto 10px auto; 
     border-radius: 50%;
     overflow: hidden;
@@ -232,9 +233,15 @@
 
 
 .choose-avatar-container{
-    position: relative;
-    display: block;
-    margin: 20px auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    overflow: auto;
+    transform: translate(-50%, -50%);
+    max-width: 700px;
+     max-height: 80vh;
+    display: none;
+    margin:  auto;
     padding: 5px 20px 5px 10px;
     background: #f0f0f0;
     border-radius: 8px;
@@ -272,8 +279,8 @@
 }
 
 .avatar-options img {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -284,8 +291,15 @@
     transform: scale(1.1);
 }
 
+.avatar-options img.selected {
+    border: 3px solid #4CAF50;  
+    border-radius: 10px;         
+    transform: scale(1.1);       
+    transition: 0.2s;            
+}
+
 .ch-avatar-content button {
-   margin: 0px auto 20px; 
+   margin: 20px auto 20px; 
 
    padding: 10px;
    width: 100px;

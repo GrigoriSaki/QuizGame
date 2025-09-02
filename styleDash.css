@@ -241,12 +241,15 @@ h1
 
 
 
+
+
 .avatar img{
-    width: 60px;
-    height: 60px;
+
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     padding-left: 8px;
-    background-color:#dee2e6 ;
+    background-color:rgb(84, 148, 233) ;
     object-fit: cover;
     
 }

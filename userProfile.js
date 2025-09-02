@@ -3,6 +3,13 @@
  const addQuestionBtn = document.getElementById("add-question");
  const submitBtn = document.getElementById("submit-btn");
  const cancelBtn = document.getElementById("cancel-btn");
+ const changeAvatarBtn = document.getElementById("change-avatar");
+ const closeAvatarBtn = document.getElementById("close-avatar");
+ const avatarImages = document.querySelectorAll(".avatar-options img");
+ const currentAvatar = document.querySelector(".profile-picture img");
+ const saveAvatarBtn = document.getElementById("save-avatar-btn");
+ let selectedAvatarSrc = null;
+    const savedAvatar = localStorage.getItem("userAvatar");
 
 
 function isAdminUser() {
@@ -151,3 +158,61 @@ function isAdminUser() {
     sendQuestion();
   }
 }
+
+        changeAvatarBtn.addEventListener("click", ()=>
+        {
+             document.querySelector(".background").style.backgroundColor ="rgb(143, 225, 147)";
+            document.querySelector(".profile-container").style.display = "none";
+            document.querySelector(".header").style.display = "none";
+            document.querySelector(".choose-avatar-container").style.display = "block";
+           
+            
+        })
+
+        closeAvatarBtn.addEventListener("click", ()=>
+        {
+           
+            document.querySelector(".profile-container").style.display = "block";
+            document.querySelector(".header").style.display = "block";
+            document.querySelector(".choose-avatar-container").style.display = "none";
+            document.querySelector(".background").style.backgroundColor ="#f0f0f0";
+            
+            
+        })
+
+        
+            
+
+        avatarImages.forEach(img => {
+                img.addEventListener("click", () => {
+                    selectedAvatarSrc = img.src;
+
+                     avatarImages.forEach(i => i.classList.remove("selected"));
+                     img.classList.add("selected");
+                })
+            });
+
+
+
+        saveAvatarBtn.addEventListener("click", ()=>{
+
+             if (selectedAvatarSrc) {
+                 localStorage.setItem("userAvatar", selectedAvatarSrc);
+                currentAvatar.src = selectedAvatarSrc;
+                document.querySelector(".profile-container").style.display = "block";
+                document.querySelector(".header").style.display = "block";
+                document.querySelector(".choose-avatar-container").style.display = "none";
+                document.querySelector(".background").style.backgroundColor ="#f0f0f0";
+
+            }
+
+        })
+
+        if (savedAvatar) {
+        document.querySelector(".profile-picture img").src = savedAvatar;
+    }
+
+        
+            
+        
+

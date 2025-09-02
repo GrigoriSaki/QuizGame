@@ -1,6 +1,7 @@
 const token= localStorage.getItem('token');
 let quizCounter= 0;
 document.getElementById("quizCount").textContent = 0;
+  const savedAvatar = localStorage.getItem("userAvatar");
 
 
 
@@ -76,9 +77,9 @@ if (token)
         window.location.href = "userProfile.html";
     });
 
-    
 
-    
+    if (savedAvatar) {
+        document.querySelector(".avatar img").src = savedAvatar;
+    }
 
-   
 
