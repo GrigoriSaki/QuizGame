@@ -10,6 +10,19 @@
  const saveAvatarBtn = document.getElementById("save-avatar-btn");
  let selectedAvatarSrc = null;
     const savedAvatar = localStorage.getItem("userAvatar");
+    let selectedAvatarIndex = 0;
+
+    const avatars = [
+        "avatars/aDefault.png",
+        "avatars/a1.png",
+        "avatars/a2.png",
+        "avatars/a3.png",
+        "avatars/a4.png",
+        "avatars/a5.png",
+        "avatars/a6.png",
+        "avatars/a7.png"
+    ];
+
 
 
 function isAdminUser() {
@@ -47,6 +60,7 @@ function isAdminUser() {
             document.getElementById("username").textContent = data.userName;
             const createdAt = new Date(data.createdAt);
             document.getElementById("user-since").textContent = createdAt.toLocaleDateString("pl-PL");
+            currentAvatar.src = avatars[data.avatarIndex] || "avatars/aDefault.png";
 
 
         })
@@ -143,21 +157,21 @@ function isAdminUser() {
 
        function validateAll() {
   
-  const requiredFields = document.querySelectorAll("[required]");
-  let allValid = true;
+             const requiredFields = document.querySelectorAll("[required]");
+             let allValid = true;
 
-  for (let field of requiredFields) {
-    if (!field.checkValidity()) {
-      field.reportValidity(); 
-      allValid = false;
-      break; 
-    }
-  }
-
-  if (allValid) {
-    sendQuestion();
-  }
-}
+            for (let field of requiredFields) {
+            if (!field.checkValidity()) {
+            field.reportValidity(); 
+            allValid = false;
+            break; 
+            }
+            }
+ 
+            if (allValid) {
+               sendQuestion();
+            }
+        }
 
         changeAvatarBtn.addEventListener("click", ()=>
         {
@@ -183,9 +197,10 @@ function isAdminUser() {
         
             
 
-        avatarImages.forEach(img => {
+        avatarImages.forEach((img, index) => {
                 img.addEventListener("click", () => {
-                    selectedAvatarSrc = img.src;
+                    selectedAvatarIndex = index;
+                    
 
                      avatarImages.forEach(i => i.classList.remove("selected"));
                      img.classList.add("selected");
@@ -196,22 +211,37 @@ function isAdminUser() {
 
         saveAvatarBtn.addEventListener("click", ()=>{
 
-             if (selectedAvatarSrc) {
-                 localStorage.setItem("userAvatar", selectedAvatarSrc);
-                currentAvatar.src = selectedAvatarSrc;
+           
+                
+                setAvatar(selectedAvatarIndex);
                 document.querySelector(".profile-container").style.display = "block";
                 document.querySelector(".header").style.display = "block";
                 document.querySelector(".choose-avatar-container").style.display = "none";
                 document.querySelector(".background").style.backgroundColor ="#f0f0f0";
-
-            }
+                loadUserProfile();
 
         })
 
-        if (savedAvatar) {
-        document.querySelector(".profile-picture img").src = savedAvatar;
-    }
+    
 
+
+         function setAvatar (avatarIndex){
+
+              fetch("https://localhost:7049/api/auth/avatar", {
+            method: "PATCH",
+            headers:{
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(avatarIndex)
+        })
+        .then(res => {
+             if (!res.ok) throw new Error("Błąd przy ustawianiu avatara");
+             return res.json();
+            }).then(data => {
+                console.log(data.message);
+            }).catch(err => console.error(err));
+         }
         
             
         

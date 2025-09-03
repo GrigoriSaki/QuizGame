@@ -2,10 +2,21 @@ const token= localStorage.getItem('token');
 let quizCounter= 0;
 document.getElementById("quizCount").textContent = 0;
   const savedAvatar = localStorage.getItem("userAvatar");
+  const avatars = [
+    "avatars/aDefault.png",
+    "avatars/a1.png",
+    "avatars/a2.png",
+    "avatars/a3.png",
+    "avatars/a4.png",
+    "avatars/a5.png",
+    "avatars/a6.png",
+    "avatars/a7.png"
+  ];
+
+  
 
 
-
-if (token)
+    if (token)
     {
         fetch("https://localhost:7049/api/auth/profile", {
             method: "GET",
@@ -27,6 +38,8 @@ if (token)
             quizCounter = data.completedQuizes;
             animateCountUp("quizCount", quizCounter, 4000);
             localStorage.setItem("isAdmin", data.isAdmin);
+            document.getElementById("current-main-avatar").src=avatars[data.avatarIndex] || "avatars/aDefault.png";
+            
             
             
         })
@@ -34,6 +47,9 @@ if (token)
     } else {
         console.log("Brak tokenu, użytkownik niezalogowany.");
     }
+ 
+
+
 
     
 
@@ -77,9 +93,9 @@ if (token)
         window.location.href = "userProfile.html";
     });
 
+    
 
-    if (savedAvatar) {
-        document.querySelector(".avatar img").src = savedAvatar;
-    }
+
+    
 
 
