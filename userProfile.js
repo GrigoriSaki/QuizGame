@@ -209,25 +209,21 @@ function isAdminUser() {
 
 
 
-        saveAvatarBtn.addEventListener("click", ()=>{
+        saveAvatarBtn.addEventListener("click", async ()=>{
 
            
                 
-                setAvatar(selectedAvatarIndex);
-                document.querySelector(".profile-container").style.display = "block";
-                document.querySelector(".header").style.display = "block";
-                document.querySelector(".choose-avatar-container").style.display = "none";
-                document.querySelector(".background").style.backgroundColor ="#f0f0f0";
-                loadUserProfile();
-
-        })
+               try{ await setAvatar(selectedAvatarIndex)
+                location.reload();} 
+                catch(err){console.error(err);}
+        });
 
     
 
 
-         function setAvatar (avatarIndex){
+         async function setAvatar (avatarIndex){
 
-              fetch("https://localhost:7049/api/auth/avatar", {
+            const res = await fetch("https://localhost:7049/api/auth/avatar", {
             method: "PATCH",
             headers:{
                 "Content-Type": "application/json",
@@ -235,12 +231,14 @@ function isAdminUser() {
             },
             body: JSON.stringify(avatarIndex)
         })
-        .then(res => {
+        
              if (!res.ok) throw new Error("Błąd przy ustawianiu avatara");
-             return res.json();
-            }).then(data => {
+             const data = await res.json();
+          
                 console.log(data.message);
-            }).catch(err => console.error(err));
+
+                return data;
+            
          }
         
             

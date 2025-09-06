@@ -93,6 +93,11 @@ document.getElementById("quizCount").textContent = 0;
         window.location.href = "userProfile.html";
     });
 
+     document.getElementById("statisticsLink").addEventListener("click", function(e){e.preventDefault();
+
+        window.location.href = "statistics.html";
+    });
+
     
 
 
