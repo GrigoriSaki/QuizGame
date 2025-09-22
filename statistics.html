@@ -11,10 +11,10 @@
     </head>
 
     <body>
-        <div class = "background">
+        
             <div class="header">
-            <h1>Statistics</h1>
-        </div>
+              <h1>Statistics</h1>
+            </div>
         <div class="first--row--content">
             <div class="last--ten--results">
              <h2>Last 10 Results</h2>
@@ -88,12 +88,33 @@
                 </tbody>
                 </table>
             </div>
-            <div class="average--of--ten--results">
+            <div class="column--with-averages--percentages">
+                <div class="average--of--ten--results">
                 <h3>Average of last ten</h3>
                 <div class="average--value">7.5</div>
 
             </div>
+
+             <div class="percentage--of--good--results">
+                <h3>Percentage of good results</h3>
+                <div class="percentage--value">79%</div>
+             </div>
+                
+            </div>
+        
         </div>
+
+        <div class="second--row--content">
+                  <div class="diagram">
+                    <h2>Results Diagram</h2>
+                    <canvas id="last--ten--chart" ></canvas>
+                  </div> 
+                </div>
+                
+
+       
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+       <script src="statistics.js"></script>
     </body>
 
 </html>
