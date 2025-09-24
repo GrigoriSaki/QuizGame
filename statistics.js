@@ -1,13 +1,27 @@
 
 const myChart = document.getElementById('last--ten--chart').getContext('2d');
+ const token = localStorage.getItem("token");
+
+
+async function loadStatistics() {
+results = await fetch("https://localhost:7049/api/quiz/lastTen", {
+    headers: { "Authorization": "Bearer " + token }
+})
+.then(res => res.json());
+
+
+const scores = results.map(r => r.score);
+console.log(scores);
+const dates  = results.map(r => new Date(r.resultDate).toLocaleDateString());
+console.log(dates);
 
 new Chart(myChart, {
     type : 'bar',
     data : {
-        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        labels: dates,
         datasets: [{
             label : 'Last 10 results',
-            data : [12, 19, 3, 5, 2, 3, 10, 7, 8, 6],
+            data : scores,
             backgroundColor : 'rgba(54, 162, 235, 0.2)',
             borderColor : 'rgba(54, 162, 235, 1)',
             borderWidth : 1
@@ -23,3 +37,10 @@ new Chart(myChart, {
     }
 
 });
+    
+}
+
+loadStatistics();
+ 
+
+

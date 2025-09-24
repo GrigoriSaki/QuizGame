@@ -11,6 +11,10 @@ let shownQuestionIds = [];
 
 
 
+
+
+
+
 async function loadQuestion()
 {
      updateQuestionIndex();
@@ -18,8 +22,11 @@ async function loadQuestion()
     nextButton.style.display = "none";
     let q;
 
-    do{const res = await fetch("https://localhost:7049/api/quiz/random", {
-        headers: { "Authorization": "Bearer " + token }});
+    do {
+        const res = await fetch("https://localhost:7049/api/quiz/random", {
+            headers: { "Authorization": "Bearer " + token }
+        });
+
         q = await res.json();
 
       } while (shownQuestionIds.includes(q.id));
@@ -88,6 +95,33 @@ function updateQuestionIndex() {
    
 }
 
+
+async function addResults( score){
+
+    const response = await fetch("https://localhost:7049/api/quiz/addResult",{
+        method:"POST",
+        headers:{ "Content-Type": "application/json",
+            "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify({
+            score: score,
+        })
+    });
+
+    if (!response.ok) {
+    console.error("Błąd przy dodawaniu wyniku");
+    return null;
+  }
+
+
+
+  const data = await response.json();
+  return data;
+
+
+}
+
+
 function finishQuiz() {
     document.getElementById("content").innerHTML = "<h1 class=\"end-title\">You did it!</h1> <p>Your score: " + counter + "/" + maxQuestions + "</p> <button id=\"restart-button\">OK!</button>";
     const restartButton = document.getElementById("restart-button");
@@ -109,9 +143,14 @@ function finishQuiz() {
 
     restartButton.onclick=()=>{window.location.href = "dashboard.html";};
 }
+
+
     
 
 
 nextButton.onclick = loadQuestion;
-finishButton.onclick = finishQuiz;
+finishButton.onclick = () => {
+  finishQuiz();
+  addResults(counter);
+};
 loadQuestion();
