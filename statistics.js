@@ -11,9 +11,26 @@ results = await fetch("https://localhost:7049/api/quiz/lastTen", {
 
 
 const scores = results.map(r => r.score);
-console.log(scores);
 const dates  = results.map(r => new Date(r.resultDate).toLocaleDateString());
-console.log(dates);
+
+const tbody = document.getElementById("results-body");
+
+for (let i = 0; i < results.length; i++) {
+  const tr = document.createElement("tr");
+  tr.innerHTML = `<td>${scores[i]}</td><td>${dates[i]}</td>`;
+  tbody.appendChild(tr);
+}
+
+
+const averageValue = scores.reduce((a, b) => a + b, 0) / scores.length;
+document.getElementById("average-value").textContent = averageValue.toFixed(2);
+
+const percentageValue = (scores.filter(s => s >= 6).length / scores.length) * 100;
+document.getElementById("percentage-value").textContent = percentageValue.toFixed(0) + "%";
+
+
+
+
 
 new Chart(myChart, {
     type : 'bar',
