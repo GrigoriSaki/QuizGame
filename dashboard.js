@@ -98,6 +98,11 @@ document.getElementById("quizCount").textContent = 0;
         window.location.href = "statistics.html";
     });
 
+    document.getElementById("settingsLink").addEventListener("click", function(e){e.preventDefault();
+
+        window.location.href = "settings.html";
+    });
+
     
 
 

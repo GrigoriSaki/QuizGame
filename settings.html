@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Settings Page</title>
+    <link rel="stylesheet" href="settings.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <div class="settings--container">
+            <div class="header--container">
+                <h1>Settings</h1>
+            </div>
+            <div class="settings--headers">
+                <h2>Game </h2>
+                <div class="settings--options">
+                    <p>Here you can adjust your game settings.</p>
+                    <hr>
+                    <div class="question--amount">
+                        <h3>Choose the amount of questions</h3>
+                        <button id="ten--btn"> 10</button>
+                        <button id="fifteen--btn"> 15</button>
+                        <button id="twenty--btn"> 20</button>
+                    </div>
+                    <hr>
+                    <div class="time--limit">
+                        <h3>Turn on time limit 10 seconds</h3>
+                          <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                          </label>
+                    </div>
+                    <hr>
+                    <div class="difficulty">
+                        <h3>Select Difficulty Level</h3>
+                        <label>
+                            <input type="radio" name="difficulty" value="easy" checked>
+                            Easy
+                        </label>
+                        <label>
+                            <input type="radio" name="difficulty" value="medium">
+                            Medium
+                        </label>
+                        <label>
+                            <input type="radio" name="difficulty" value="hard">
+                            Hard
+                        </label>
+                    </div>
+
+                </div>
+                
+            </div>
+            <div class="settings--headers">
+                <h2>Account </h2>
+                <div class="settings--options">
+                    <p>Here you can manage your account settings.</p>
+                    <hr>
+                </div>
+                
+            </div>
+            <div class="settings--headers">
+                <h2>Theme </h2>
+                <div class="settings--options">
+                    <p>Here you can customize the appearance of the application.</p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
