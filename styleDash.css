@@ -9,6 +9,15 @@
     
 }
 
+:root {
+  --bg-green: rgb(143, 225, 147);
+  --green-active: rgb(177, 248, 180);
+  --light-grey:#f8f9fa;
+  --border-grey:#dee2e6;
+  --dark-grey-txt:rgb(59, 59, 59);
+  --text-color: black;
+}
+
 h1
 {
     padding: 5px;
@@ -31,7 +40,7 @@ h1
     padding: 0 0.9rem;
     overflow-x: visible;
     transition: all 0.3s linear;
-    background-color: rgb(143, 225, 147)
+    background-color: var(--bg-green);
     
     
 }
@@ -64,7 +73,7 @@ h1
 }
 
 .main a:hover, .active{
-    background-color: rgb(177, 248, 180);
+    background-color: var(--green-active);
     border-radius: 8px;
   
 }
@@ -106,8 +115,8 @@ h1
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+    background-color: var(--light-grey);
+    border: 1px solid var(--border-grey);
     border-radius: 0.5rem;
     margin: 1rem 0;
     padding: 1rem;
@@ -115,7 +124,7 @@ h1
 }
 
 .header--wrapper h2{
-    color:rgb(143, 225, 147) ;
+    color: var(--bg-green);
     
 }
 
@@ -135,8 +144,8 @@ h1
     
     width: 25rem;
     height: 20rem;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+    background-color: var(--light-grey);
+    border: 1px solid var(--border-grey);
     border-radius: 0.5rem;
     padding: 1rem;
     
@@ -234,14 +243,9 @@ h1
 }
 .quizCounter h3 {
     font-size: 0.8rem;
-    color: rgb(59, 59, 59);
+    color: var(--dark-grey-txt);
     margin-bottom: 0.5rem;
 }
-
-
-
-
-
 
 .avatar img{
 

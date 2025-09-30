@@ -71,6 +71,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 4%;
 
 }
 
@@ -136,6 +137,42 @@
 }
 
 .difficulty h3{
+    font-weight:lighter;
+    font-size: 1rem;
+    color: rgb(22, 18, 18);
+}
+
+.change--account--info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.change--account--info h3{
+    font-weight:lighter;
+    font-size: 1rem;
+    color: rgb(22, 18, 18);
+}
+
+#change--password--btn, #change--email--btn, #delete--account--btn {
+    background-color: rgb(143, 225, 147);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 8%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.change--theme{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5%;
+    margin-bottom: 15px;
+}
+.change--theme h3{
     font-weight:lighter;
     font-size: 1rem;
     color: rgb(22, 18, 18);
