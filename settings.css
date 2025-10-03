@@ -3,41 +3,52 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
 
     
 }
 
+
+
+.settings--container{
+    background-color: var(--light-grey);
+    min-height: 100vh;
+    padding-bottom: 50px;
+    padding-top: 25px;
+}
+
 .header--container{
-    background-color: rgb(143, 225, 147);
-    margin: 15px 5% 50px ;
+    background-color: var(--bg-green);
+    margin: 0px 5% 50px ;
     padding: 10px 15px;
     border-radius: 8px;
-    border: 2px solid #acacac;
+    border: 2px solid var(--border-grey);
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .settings--headers h2{
     margin: 15px 5% 5px ;
+    color: var(--text-color);
 }
 
 .settings--options{
-    margin: 5px 5% 15px ;
+    margin: 5px 5% 0px ;
     padding: 10px;
-    border: 2px solid #acacac;
+    border: 2px solid var(--border-grey);
     border-radius: 8px;
-    background-color: rgb(215, 242, 216);
+    background-color: var(--);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .settings--options p{
     font-weight: bolder;
     font-size: 1rem;
-    color: rgb(22, 18, 18);
+    color: var(--text-color);
 }
 
 .settings--options hr{
     border: none;
-    border-top: 2px solid rgb(143, 225, 147);
+    border-top: 2px solid var(--bg-green);
     margin: 25px 0;
 }
 
@@ -50,11 +61,11 @@
 .question--amount h3{
     font-weight:lighter;
     font-size: 1rem;
-    color: rgb(22, 18, 18);
+    color: var(--text-color);
 }
 
 #ten--btn, #fifteen--btn, #twenty--btn  {
-    background-color: rgb(143, 225, 147);
+    background-color: var(--bg-green);
     border: none;
     border-radius: 5px;
     padding: 10px 8%;
@@ -64,7 +75,7 @@
 }
 
 #ten--btn:hover, #fifteen--btn:hover, #twenty--btn:hover  {
-    background-color: rgb(120, 200, 120);
+    background-color: var(--green-active);
 }
 
 .time--limit {
@@ -78,7 +89,7 @@
 .time--limit h3{
     font-weight:lighter;
     font-size: 1rem;
-    color: rgb(22, 18, 18);
+    color: var(--text-color);
 }
 
 
@@ -102,7 +113,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: #ccc;
+      background-color: var(--border-grey);
       transition: .4s;
       border-radius: 34px;
     }
@@ -116,13 +127,13 @@
       left: 4px;
       bottom: 4px;
       top: 3px;
-      background-color: white;
+      background-color: var(--white);
       transition: .4s;
       border-radius: 50%;
     }
 
     input:checked + .slider {
-      background-color: #4caf50;
+      background-color: var(--bg-green);
     }
     input:checked + .slider:before {
       transform: translateX(23px);
@@ -139,7 +150,11 @@
 .difficulty h3{
     font-weight:lighter;
     font-size: 1rem;
-    color: rgb(22, 18, 18);
+    color: var(--text-color);
+}
+
+.difficulty label{
+    color: var(--text-color);
 }
 
 .change--account--info{
@@ -152,11 +167,11 @@
 .change--account--info h3{
     font-weight:lighter;
     font-size: 1rem;
-    color: rgb(22, 18, 18);
+    color: var(--text-color);
 }
 
 #change--password--btn, #change--email--btn, #delete--account--btn {
-    background-color: rgb(143, 225, 147);
+    background-color: var(--bg-green);
     border: none;
     border-radius: 5px;
     padding: 10px 8%;
@@ -175,5 +190,5 @@
 .change--theme h3{
     font-weight:lighter;
     font-size: 1rem;
-    color: rgb(22, 18, 18);
+    color: var(--text-color);
 }

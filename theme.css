@@ -1,0 +1,20 @@
+:root {
+  --bg-green: rgb(143, 225, 147);
+  --green-active: rgb(177, 248, 180);
+  --light-grey:#f8f9fa;
+  --border-grey:#dee2e6;
+  --dark-grey-txt:rgb(59, 59, 59);
+  --text-color: black;
+  --white: rgb(255, 255, 255);
+}
+
+
+.dark-mode {
+  --bg-green: rgb(122, 187, 125);
+  --green-active: rgb(84, 126, 86);
+  --light-grey:#252525;
+  --border-grey:#626465;
+  --dark-grey-txt:rgb(216, 214, 214);
+  --text-color: rgb(255, 255, 255);
+  --white: rgb(31, 31, 31);
+}
